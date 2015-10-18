@@ -59,11 +59,11 @@ def count_neighbours(board, coord):
 def compute_new_val(board, coord):
     val = cell_at(board, coord)
     count = count_neighbours(board, coord)
-    if val == 1 and (count < 2 or count > 3):
-        return 0
-    if val == 0 and count != 3:
-        return 0
-    return 1
+    if val == ALIVE and (count < 2 or count > 3):
+        return DEAD
+    if val == DEAD and count != 3:
+        return DEAD
+    return ALIVE
 
 def next_board(board):
     size = board_len(board)
